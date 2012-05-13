@@ -32,19 +32,11 @@ module WikiManager
   editor.addMissingLinks
 
   tree = TreeMaker.new all_pages
+  tree.addDepthsToPages all_pages[ROOT], 0, Array.new
   tree.showTree all_pages[ROOT], 0, Array.new
-
   tree.finishOffTree
 
+
   editor.addSidebar tree.getOutput
-
-  #show = Show.new all_pages
-  #show.showAllPages
-
-  #tree = TreeMaker.new
-  #tree.getAllFiles
-  #tree.createAllPages
-  #tree.showAllPages
-  #tree.addAllMissingSiblings
 
 end

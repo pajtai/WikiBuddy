@@ -11,6 +11,7 @@ module WikiManager
     @sibling_pages
     @missing_pages
     @orphaned
+    @minimum_depth
 
     def initialize file_name, all_pages
       @file_name = file_name
@@ -19,7 +20,18 @@ module WikiManager
       @missing_pages = Array.new
       @sibling_pages = Array.new
       @orphaned = true
+      @minimum_depth = nil
       # A collection of related page names
+    end
+
+    def getMinDepth
+      @minimum_depth
+    end
+
+    def setMinDepth minimum_depth
+      if @minimum_depth.nil? or minimum_depth < @minimum_depth
+        @minimum_depth = minimum_depth
+      end
     end
 
     def setOrphaned orphaned
