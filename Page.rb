@@ -88,10 +88,14 @@ module WikiManager
             if nil != pagename[1]
               pagename = PageName.new pagename[1], @file_extension
               missing_page = @all_pages[pagename.getPageKey]
-              # Remember the humanly name we grabbed from the wiki file
-              missing_page.setPageName pagename.getHumanlyName
-              unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
-                @sibling_pages << missing_page
+              unless missing_page.nil?
+                # Remember the humanly name we grabbed from the wiki file
+                missing_page.setPageName pagename.getHumanlyName
+                unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
+                  @sibling_pages << missing_page
+                end
+              else
+                puts "missing file: " + pagename.getHumanlyName + " in " + @file_name
               end
             end
           end
