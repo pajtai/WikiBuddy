@@ -106,7 +106,7 @@ module WikiManager
         end
       end
 
-      @output = @output + "\n\n Total of " + @all_pages.size.to_s + " pages.\n Total of " + @orphaned.to_s + " orphans."
+      @output = @output + "\n\n Total of " + @all_pages.size.to_s + " pages.\n Total of " + @orphaned.to_s + " orphans.\n Total of " + @count.to_s + " nodes."
     end
 
     def getOutput
