@@ -22,7 +22,7 @@ module WikiManager
   # 7 - Keep track of Pages that were shown
   # 8 - Show orphan Pages. Start at 1st one and show all links
 
-  page_maker = PageMaker.new TO_WIKI
+  page_maker = PageMaker.new WIKI_DIR
   all_pages = page_maker.getAllPages
 
   link_maker = LinkMaker.new all_pages
