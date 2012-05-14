@@ -42,3 +42,12 @@ git commit -a -m "your wiki update message here"
 git push
 ```
 * Go look at the changes on GitHub.
+
+### FAQ
+
+* I get a `permission denied` error when I try to run `./main.rb`
+    * Change the file permissions for `main.rb` to executable for you, something like:
+
+```bash
+chmod 764 main.rb
+```
