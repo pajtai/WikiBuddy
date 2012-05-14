@@ -18,10 +18,12 @@ WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports 
 5. Create a `_Sidebar.md` page. You can just put a `.` for its contents, since it will get overwritten.
 6. Run `main.rb`. This will modify some files by adding reciprocal "Related to" links, and it will overwrite
 `_Sidebar.md` with a page tree.
+
 ```bash
 ./main.rb`
 ```
 6. You should probably make sure you're okay with the changes in you GitHub Wiki repository. For example
+
 ```bash
 # see what files were changed
 git status
@@ -31,6 +33,7 @@ git diff
 git checkout filename.md
 ```
 7. Update your GitHub Wiki
+
 ```bash
 git commit -a -m "your wiki update message here"
 git push
