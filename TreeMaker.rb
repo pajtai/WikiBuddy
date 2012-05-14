@@ -18,12 +18,12 @@ module WikiManager
 
       page.setMinDepth depth
 
-      unless @count > MAX_NODES or depth > MAX_DEPTH or page.getMinDepth < depth # or ! page.isOrphaned
+      unless depth > MAX_DEPTH or page.getMinDepth < depth # or ! page.isOrphaned
 
         page.setOrphaned false
 
         now_displayed = Array.new displayed
-        @count += 1
+
         pre = ""
         for i in 2..depth
           pre += "    "
@@ -32,6 +32,7 @@ module WikiManager
         page_name = page.getPageName
         unless now_displayed.include? page_name
           unless depth == 0
+            @count = @count + 1
             @output += "\n" + pre + "* [[" + page_name + "]]  "
           end
           now_displayed << page_name
@@ -48,14 +49,11 @@ module WikiManager
 
     def addDepthsToPages page, depth, displayed
 
-      unless @count > 1000 or depth > MAX_DEPTH
-
-        @count += 1
+      unless depth > MAX_DEPTH
 
         page.setMinDepth depth
 
         now_displayed = Array.new displayed
-        @count += 1
 
         page_name = page.getPageName
         unless now_displayed.include? page_name
