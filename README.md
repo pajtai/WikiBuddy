@@ -7,7 +7,7 @@ This simple Ruby script (`main.rb`) does two things. It makes sure the links und
 are reciprocal, and it automatically creates a tree of your pages for your `_Sidebar`. The relationships in the tree
 are based on the `### Related to:` sections. 
 
-WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports markdown pages.
+WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports **markdown** pages.
 
 ### Installing:
 
