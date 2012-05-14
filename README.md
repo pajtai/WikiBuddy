@@ -41,4 +41,4 @@ git checkout filename.md
 git commit -a -m "your wiki update message here"
 git push
 ```
-* Go look at the changes
+* Go look at the changes on GitHub.
