@@ -96,7 +96,7 @@ module WikiManager
     def finishOffTree
       @orphaned = checkForOrphans
 
-      @output += "  \n\n### Orphan Pages:  \n"
+      @output += "  \n\n### Pages Not in Main Tree:  \n"
 
       while checkForOrphans > 0 do
         first_orphan = firstOrphan
@@ -106,7 +106,8 @@ module WikiManager
         end
       end
 
-      @output = @output + "\n\n Total of " + @all_pages.size.to_s + " pages.\n Total of " + @orphaned.to_s + " orphans.\n Total of " + @count.to_s + " nodes."
+      @output = "#{@output} \n\n Total of #{@all_pages.size.to_s} pages.  \n" +
+          " Total of #{@orphaned.to_s} pages not in main tree.  \n Total of #{@count.to_s} nodes."
     end
 
     def getOutput
