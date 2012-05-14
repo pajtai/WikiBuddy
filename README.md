@@ -11,7 +11,8 @@ WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports 
 
 ### Example:
 
-[My Reference Wiki](https://github.com/pajtai/Reference/wiki/) uses WikiBuddy for the Sidebar and to make sure all "Related To" links are reciprocated between page.s
+[My Reference Wiki](https://github.com/pajtai/Reference/wiki/) uses WikiBuddy for the Sidebar and to make sure all 
+"Related To" links are reciprocated between pages.
 
 ### Installing:
 
