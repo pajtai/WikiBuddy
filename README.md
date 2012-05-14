@@ -23,6 +23,7 @@ and push the changes back to your wiki.
 * Clone this repository and modify `Constants.rb`, so that the `WIKI_DIR` constant points to your GitHub Wiki Git repository.
 * `git pull` from your Wiki to make sure you are up to date.
 * Add relationships to your "top level" pages at the end of `Home.md`. This makes sure that the tree is rooted in the right spot. 
+
 ```html
 ### Related to:
 [[HTML]]
