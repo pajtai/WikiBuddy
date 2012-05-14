@@ -23,7 +23,7 @@ and push the changes back to your wiki.
 `_Sidebar.md` with a page tree.
 
 ```bash
-./main.rb`
+./main.rb
 ```
 * You should probably make sure you're okay with the changes in you GitHub Wiki repository. For example  
 
