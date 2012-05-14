@@ -55,6 +55,19 @@ git push
 ```
 * Go look at the changes on GitHub.
 
+### Usage
+
+Add "Related To" links at the end of your files. If you add a relationship to page `B` from page `A`, then Wiki Buddy
+will automatically create a link back to page `A` from page `B`.
+
+Here is an example:
+
+```html
+### Related to:
+[[A Page]]
+[[B Page]]
+```
+
 ### FAQ
 
 * I get a `permission denied` error when I try to run `./main.rb`
