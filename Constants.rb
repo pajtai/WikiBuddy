@@ -8,4 +8,5 @@ module WikiManager
   SIDEBAR = '_Sidebar.md'
   MAX_DEPTH = 5
   MAX_NODES = 5000
+  WIKI_BUDDY = 'https://github.com/pajtai/WikiBuddy'
 end

@@ -105,7 +105,8 @@ module WikiManager
       end
 
       @output = "#{@output} \n\n Total of #{@all_pages.size.to_s} pages.  \n" +
-          " Total of #{@orphaned.to_s} pages not in main tree.  \n Total of #{@count.to_s} nodes."
+          " Total of #{@orphaned.to_s} pages not in main tree.  \n Total of #{@count.to_s} nodes.  \n" +
+          " This Sidebar and half of the \"Related To\" links created by <a href=\"#{WIKI_BUDDY}\">Wiki Buddy</a>  \n"
     end
 
     def getOutput
