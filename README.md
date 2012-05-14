@@ -22,7 +22,13 @@ and push the changes back to your wiki.
 * Clone your GitHub Wiki repository onto the disk that will house WikiBuddy.
 * Clone this repository and modify `Constants.rb`, so that the `WIKI_DIR` constant points to your GitHub Wiki Git repository.
 * `git pull` from your Wiki to make sure you are up to date.
-* Create a `root.md` page that has a `### Related to:` section pointing to your "top level" pages.
+* Add relationships to your "top level" pages at the end of `Home.md`. This makes sure that the tree is rooted in the right spot. 
+```html
+### Related to:
+[[HTML]]
+[[CSS]]
+[[Javascript]]
+```
 * Create a `_Sidebar.md` page. You can just put a `.` for its contents, since it will get overwritten.
 * Run `main.rb`. This will modify some files by adding reciprocal "Related to" links, and it will overwrite
 `_Sidebar.md` with a page tree.
