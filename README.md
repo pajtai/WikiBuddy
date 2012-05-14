@@ -16,11 +16,15 @@ WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports 
 
 ### Installing:
 
-Basically, clone your wiki, clone this, point this to your wiki, pull from your wiki, run `main.rb`, 
-and push the changes back to your wiki.
+Basically, clone your wiki, clone this, and point this to your wiki.
 
 * Clone your GitHub Wiki repository onto the disk that will house WikiBuddy.
 * Clone this repository and modify `Constants.rb`, so that the `WIKI_DIR` constant points to your GitHub Wiki Git repository.
+
+### Usage
+
+Basically, pull from your wiki, run `main.rb`, and push the changes back to your wiki.
+
 * `git pull` from your Wiki to make sure you are up to date.
 * Add relationships to your "top level" pages at the end of `Home.md`. This makes sure that the tree is rooted in the right spot. 
 
