@@ -9,6 +9,10 @@ are based on the `### Related to:` sections.
 
 WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports **markdown** pages.
 
+### Example:
+
+[[My Reference Wiki|https://github.com/pajtai/Reference/wiki/]] uses WikiBuddy for the Sidebar and to make sure all "Related To" links are reciprocated between page.s
+
 ### Installing:
 
 Basically, clone your wiki, clone this, point this to your wiki, pull from your wiki, run `main.rb`, 
