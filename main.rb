@@ -36,7 +36,6 @@ module WikiManager
   tree.showTree all_pages[ROOT], 0, Array.new
   tree.finishOffTree
 
-
   editor.addSidebar tree.getOutput
 
 end
