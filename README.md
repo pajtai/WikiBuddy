@@ -49,6 +49,7 @@ git checkout filename.md
 
 ```bash
 # if _Sidebar.md (or any other file) was created, add it in to Git
+# -A will add all files not yet added or ignored, you can replace -A with the file name
 git add -A
 # following two lines are what you will usually do to update your GitHub wiki
 git commit -a -m "your wiki update message here"
