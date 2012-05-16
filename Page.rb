@@ -2,6 +2,14 @@ module WikiManager
 
   class Page
 
+    OPEN_LINK = /\[\[/
+    CLOSE_LINK = /\]\]/
+
+    SIMPLE_LINK = /([^\]|]+)/
+    TWO_PART_LINK = /[^|]+\|([^\]]+)/
+
+    LINKS = [SIMPLE_LINK, TWO_PART_LINK]
+
     @file_name
     @file_extension
     @page_name
@@ -78,29 +86,37 @@ module WikiManager
 
       File.open(WIKI_DIR + @file_name, "r+") do |open_file|
         while line = open_file.gets
-          # TODO: look for siblings in page body and then add those to Related to
-          if line.match(RELATED_TO)
-            looking_for_siblings = true
-            next
+
+          LINKS.each do |link_style|
+            line.scan(linkRegex OPEN_LINK, link_style, CLOSE_LINK) { |pagename|
+              pagename = pagename[0]
+
+              pagename = PageName.new pagename, @file_extension
+              addOnePageLink pagename
+            }
           end
-          if looking_for_siblings
-            pagename = line.split(/\[\[|\]\]/)
-            if nil != pagename[1]
-              pagename = PageName.new pagename[1], @file_extension
-              missing_page = @all_pages[pagename.getPageKey]
-              unless missing_page.nil?
-                # Remember the humanly name we grabbed from the wiki file
-                missing_page.setPageName pagename.getHumanlyName
-                unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
-                  @sibling_pages << missing_page
-                end
-              else
-                puts "missing file: " + pagename.getHumanlyName + " in " + @file_name
-              end
-            end
-          end
+
+
+
         end
         open_file.close
+      end
+    end
+
+    def linkRegex open, link, close
+      /#{open}#{link}#{close}/
+    end
+
+    def addOnePageLink pagename
+      missing_page = @all_pages[pagename.getPageKey]
+      unless missing_page.nil?
+        # Remember the humanly name we grabbed from the wiki file
+        missing_page.setPageName pagename.getHumanlyName
+        unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
+          @sibling_pages << missing_page
+        end
+      else
+        puts "missing file: " + pagename.getHumanlyName + " in " + @file_name
       end
     end
 

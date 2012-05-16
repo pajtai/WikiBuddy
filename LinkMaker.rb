@@ -8,7 +8,7 @@ module WikiManager
       @all_pages = all_pages
     end
 
-    # This will link all existing Page objects as they are linke in the files
+    # This will link all existing Page objects as they are linked in the files
     # It does not add any links to existing files
     def linkPages
       @all_pages.each do |lower_file, one_page|
