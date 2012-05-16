@@ -2,6 +2,7 @@ module WikiManager
 
   class Page
 
+    # Markdown link regexes
     OPEN_LINK = /\[\[/
     CLOSE_LINK = /\]\]/
 
@@ -88,15 +89,13 @@ module WikiManager
         while line = open_file.gets
 
           LINKS.each do |link_style|
-            line.scan(linkRegex OPEN_LINK, link_style, CLOSE_LINK) { |pagename|
-              pagename = pagename[0]
+            line.scan(linkRegex OPEN_LINK, link_style, CLOSE_LINK) { |page_name|
+              page_name = page_name[0]
 
-              pagename = PageName.new pagename, @file_extension
-              addOnePageLink pagename
+              page_name = PageName.new page_name, @file_extension
+              addOnePageLink page_name
             }
           end
-
-
 
         end
         open_file.close
@@ -107,16 +106,16 @@ module WikiManager
       /#{open}#{link}#{close}/
     end
 
-    def addOnePageLink pagename
-      missing_page = @all_pages[pagename.getPageKey]
+    def addOnePageLink page_name
+      missing_page = @all_pages[page_name.getPageKey]
       unless missing_page.nil?
         # Remember the humanly name we grabbed from the wiki file
-        missing_page.setPageName pagename.getHumanlyName
+        missing_page.setPageName page_name.getHumanlyName
         unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
           @sibling_pages << missing_page
         end
       else
-        puts "missing file: " + pagename.getHumanlyName + " in " + @file_name
+        puts "missing file: " + page_name.getHumanlyName + " in " + @file_name
       end
     end
 
