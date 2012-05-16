@@ -3,40 +3,34 @@ WikiBuddy
 
 ### About:
 
-This simple Ruby script (`main.rb`) does two things. It makes sure the links under the `### Related to:` heading
-are reciprocal, and it automatically creates a tree of your pages for your `_Sidebar`. The relationships in the tree
-are based on the `### Related to:` sections. 
+The goal of this Ruby script (`main.rb`) is to go through your wiki pages and make sure that any wiki page you link
+to has a reciprocal link back. Also, it automatically creates a tree of your pages for your `_Sidebar`. 
+The relationships in the tree are based on all the internal links of your pages. The tree roots itself at your
+`Home.rb` page.
 
 WikiBuddy was designed to work with the Wiki on GitHub. So far it only supports **markdown** pages.
 
 ### Example:
 
-[My Reference Wiki](https://github.com/pajtai/Reference/wiki/) uses WikiBuddy for the Sidebar and to make sure all 
-"Related To" links are reciprocated between pages.
+[My Reference Wiki](https://github.com/pajtai/Reference/wiki/) uses WikiBuddy.
 
 ### Installing:
 
 Basically, clone your wiki, clone this, and point this to your wiki.
 
 * Clone your GitHub Wiki repository onto the disk that will house WikiBuddy.
-* Clone this repository and modify `Constants.rb`, so that the `WIKI_DIR` constant points to your GitHub Wiki Git repository.
+* Clone this repository and modify `Constants.rb`, so that the `WIKI_DIR` constant points to your GitHub Wiki Git 
+repository.
 
 ### Usage
 
 Basically, pull from your wiki, run `main.rb`, and push the changes back to your wiki.
 
 * `git pull` from your Wiki to make sure you are up to date.
-* Add relationships to your "top level" pages at the end of `Home.md`. This makes sure that the tree is rooted in the right spot. 
-
-```html
-### Related to:
-[[HTML]]
-[[CSS]]
-[[Javascript]]
-```
-* Create a `_Sidebar.md` page. You can just put a `.` for its contents, since it will get overwritten.
+* Add relationships to your "top level" pages in `Home.md`. This makes sure that the tree is rooted 
+in the right spot. 
 * Run `main.rb`. This will modify some files by adding reciprocal "Related to" links, and it will overwrite
-`_Sidebar.md` with a page tree.
+`_Sidebar.md` with a page tree. If `_Sidebar.md` doesn't exist, it will be created.
 
 ```bash
 ./main.rb
@@ -54,21 +48,18 @@ git checkout filename.md
 * Update your GitHub Wiki
 
 ```bash
+# if _Sidebar.md (or any other file) was created, add it in to Git
+git add -A
+# following two lines are what you will usually do to update your GitHub wiki
 git commit -a -m "your wiki update message here"
 git push
 ```
 * Go look at the changes on GitHub.
 
-Add "Related To" links at the end of your files. If you add a relationship to page `B` from page `A`, then Wiki Buddy
-will automatically create a link back to page `A` from page `B`.
-
-Here is an example:
-
-```html
-### Related to:
-[[A Page]]
-[[B Page]]
-```
+If you have a link to page `B` from page `A`, then Wiki Buddy
+will automatically create a link back to page `A` from page `B`. It will put the created link in a "Related To"
+section. As you create your pages, you do not have to make your own "Related To" sections, since WikiBuddy will
+scan the entire page for internal links.
 
 ### FAQ
 
