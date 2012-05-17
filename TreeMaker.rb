@@ -18,7 +18,7 @@ module WikiManager
 
       page.setMinDepth depth
 
-      unless depth > MAX_DEPTH or page.getMinDepth < depth # or ! page.isOrphaned
+      unless depth > MAX_SHOW_DEPTH or page.getMinDepth < depth # or ! page.isOrphaned
 
         page.setOrphaned false
 
@@ -49,7 +49,7 @@ module WikiManager
 
     def addDepthsToPages page, depth, displayed
 
-      unless depth > MAX_DEPTH
+      unless depth > MAX_PARSE_DEPTH
 
         page.setMinDepth depth
 
