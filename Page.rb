@@ -92,6 +92,8 @@ module WikiManager
             line.scan(linkRegex OPEN_LINK, link_style, CLOSE_LINK) { |page_name|
               page_name = page_name[0]
 
+              next if page_name.match(URL_LINK)
+
               page_name = PageName.new page_name, @file_extension
               addOnePageLink page_name
             }
@@ -113,7 +115,9 @@ module WikiManager
         sibling_page.setPageName page_name.getHumanlyName
         @sibling_pages << sibling_page
       else
-        puts "missing file: " + page_name.getHumanlyName + " in " + @file_name
+        if sibling_page.nil?
+          puts "missing file: " + page_name.getPageKey + " in " + @file_name
+        end
       end
     end
 
