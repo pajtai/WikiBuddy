@@ -107,13 +107,11 @@ module WikiManager
     end
 
     def addOnePageLink page_name
-      missing_page = @all_pages[page_name.getPageKey]
-      unless missing_page.nil?
+      sibling_page = @all_pages[page_name.getPageKey]
+      unless sibling_page.nil? or @sibling_pages.include? sibling_page
         # Remember the humanly name we grabbed from the wiki file
-        missing_page.setPageName page_name.getHumanlyName
-        unless (@missing_pages.size > 0) and (@missing_pages.include? missing_page)
-          @sibling_pages << missing_page
-        end
+        sibling_page.setPageName page_name.getHumanlyName
+        @sibling_pages << sibling_page
       else
         puts "missing file: " + page_name.getHumanlyName + " in " + @file_name
       end
