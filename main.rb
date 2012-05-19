@@ -23,8 +23,8 @@ module WikiManager
   # 7 - Keep track of Pages that were shown
   # 8 - Show orphan Pages. Start at 1st one and show all links
 
-  remove_rels = RemoveRels.new WIKI_DIR
-  remove_rels.removeWikiBuddyAddedRels
+  #remove_rels = RemoveRels.new WIKI_DIR
+  #remove_rels.removeWikiBuddyAddedRels
 
   page_maker = PageMaker.new WIKI_DIR
   all_pages = page_maker.getAllPages
