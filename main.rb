@@ -3,6 +3,7 @@ module WikiManager
   CURRENT_DIR = File.dirname(__FILE__)
 
   require CURRENT_DIR + '/Constants'
+  require CURRENT_DIR + '/RemoveRels'
   require CURRENT_DIR + '/PageName'
   require CURRENT_DIR + '/Page'
   require CURRENT_DIR + '/PageMaker'
@@ -21,6 +22,9 @@ module WikiManager
   # 6 - Only show each Page once within each single branch of tree
   # 7 - Keep track of Pages that were shown
   # 8 - Show orphan Pages. Start at 1st one and show all links
+
+  remove_rels = RemoveRels.new WIKI_DIR
+  remove_rels.removeWikiBuddyAddedRels
 
   page_maker = PageMaker.new WIKI_DIR
   all_pages = page_maker.getAllPages
