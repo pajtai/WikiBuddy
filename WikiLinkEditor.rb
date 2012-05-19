@@ -1,4 +1,4 @@
-module WikiManager
+  module WikiManager
 
   class WikiLinkEditor
 
