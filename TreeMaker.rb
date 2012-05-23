@@ -14,7 +14,7 @@ module WikiManager
       @orphaned = 0
     end
 
-    def showTree page, depth, displayed
+    def showTree(page, depth, displayed)
 
       page.setMinDepth depth
 

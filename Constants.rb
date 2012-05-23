@@ -1,5 +1,5 @@
 module WikiManager
-  RELATED_TO = "### Related to:"
+  RELATED_TO = "### Linked from:"
   # No trailing slash
   WIKI_DIR = "../Reference.wiki/"
   WHITE_SPACE = '-'
