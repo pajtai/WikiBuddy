@@ -7,7 +7,7 @@ module WikiManager
   META_FILE = /^_/
   ROOT = 'home.md'
   SIDEBAR = '_Sidebar.md'
-  MAX_SHOW_DEPTH = 3
+  MAX_SHOW_DEPTH = 4
   MAX_PARSE_DEPTH = 10
   MAX_NODES = 5000
   WIKI_BUDDY = 'https://github.com/pajtai/WikiBuddy'
