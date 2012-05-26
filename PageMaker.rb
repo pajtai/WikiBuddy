@@ -19,8 +19,8 @@ module WikiManager
         next if ! one_file_name.match(VALID_PAGE_RE)
         next if one_file_name.match(META_FILE)
         one_page = Page.new one_file_name, @all_pages
-        # Lower case file name as key, to make it easilly recoverable if capitalization unknown
-        @all_pages[one_file.downcase] = one_page
+        # Lower case file name as key, to make it easily recoverable if capitalization unknown
+        @all_pages[one_page.getKey] = one_page
       end
 
       @all_pages

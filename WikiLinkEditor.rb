@@ -51,7 +51,6 @@
     end
 
     def addSidebar output
-      # TODO: create _Sidebar page if it doesn't exist
       File.open(WIKI_DIR + SIDEBAR, "w") do |open_file|
         open_file << output
       end
