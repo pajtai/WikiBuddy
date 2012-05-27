@@ -9,6 +9,8 @@ module WikiManager
     end
 
     def removeWikiBuddyAddedRels
+      previous_empty = false
+      temp = nil
       Dir.foreach @directory do |one_file|
         one_file_name = File.basename(one_file)
         next if ! one_file_name.match(VALID_PAGE_RE)
@@ -16,13 +18,32 @@ module WikiManager
 
         text = ""
         File.open(WIKI_DIR + one_file, "r") do |open_file|
-          after_rels = false
+          first = true
+
           open_file.each_line do |line|
-            if line.match(RELATED_TO)
-              after_rels = true
+
+            break if line.match(RELATED_TO)
+
+            if first
+              next if line.match(/^[\s]?$/)
+              first = false
             end
-            break if after_rels
-            text += line
+
+            if line.match(/^[\s]?$/)
+              temp = temp.nil? ? line : temp + line
+              previous_empty = true
+            else
+              if previous_empty
+                line = temp + line
+                temp = nil
+                previous_empty = false
+              end
+            end
+
+            if !previous_empty
+              text += line
+            end
+
           end
         end
 
