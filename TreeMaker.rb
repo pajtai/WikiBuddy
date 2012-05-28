@@ -107,9 +107,8 @@ module WikiManager
     end
 
     def finishOffTree
-      @orphaned = checkForOrphans
 
-      @output += "  \n\n### Pages Not in Main Tree:  \n"
+      @output += "  \n\n---------- Pages Not in Main Tree ----------  \n"
 
       while checkForOrphans > 0 do
         first_orphan = firstOrphan
@@ -118,10 +117,14 @@ module WikiManager
           showTree first_orphan, 1, Array.new
         end
       end
+    end
+
+    def addFootNote
+      @orphaned = checkForOrphans
 
       @output = "#{@output} \n\n Total of #{@all_pages.size.to_s} pages.  \n" +
           " Total of #{@orphaned.to_s} pages not in main tree.  \n Total of #{@count.to_s} nodes.  \n" +
-          " This Sidebar and half of the \"Related To\" links created by <a href=\"#{WIKI_BUDDY}\">Wiki Buddy</a>  \n" +
+          " This Sidebar and the \"Linked From\" sections created by <a href=\"#{WIKI_BUDDY}\">Wiki Buddy</a>  \n" +
           " The full tree is at [[" + File.basename(FULL_TREE, ".md") + "]]  \n"
     end
 
