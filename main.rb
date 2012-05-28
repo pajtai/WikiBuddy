@@ -33,7 +33,7 @@ module WikiManager
   editor.addSidebar tree.getOutput
 
   tree = TreeMaker.new all_pages
-  tree.setShowDepth(100)
+  tree.setShowDepth(MAX_PARSE_DEPTH)
   tree.setFiller(" . ")
   tree.setBullet("")
   tree.addDepthsToPages all_pages[ROOT], 0, Array.new

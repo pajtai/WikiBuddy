@@ -3,8 +3,8 @@ WikiBuddy
 
 ### About:
 
-The goal of this Ruby script (`main.rb`) is to go through your wiki pages and make sure that any wiki page you link
-to has a reciprocal link back. Also, it automatically creates a tree of your pages for your `_Sidebar`. 
+The goal of this Ruby script (`main.rb`) is to go through your wiki pages and show what pages link to each page.
+Also, it automatically creates a tree of your pages for your `_Sidebar`.
 The relationships in the tree are based on all the internal links of your pages. The tree roots itself at your
 `Home.rb` page.
 
@@ -61,6 +61,19 @@ If you have a link to page `B` from page `A`, then Wiki Buddy
 will automatically create a link back to page `A` from page `B`. It will put the created link in a "Related To"
 section. As you create your pages, you do not have to make your own "Related To" sections, since WikiBuddy will
 scan the entire page for internal links.
+
+### Options
+
+* You can change these settings in `Constants.rb`:
+    * The root file `ROOT`
+    * The short sidebar page (orphaned pages not shown): `SIDEBAR`
+        * Maximum depth to show sidebar: `MAX_SHOW_DEPTH`
+        * Maximum parse depth: `MAX_PARSE_DEPTH`
+        * Maximum number of nodes to show: `MAX_NODES`
+    * The full sidebar - with orphan pages: `FULL_TREE`
+* You can change these setting in `main.rb`;
+    * Bullet symbol: `TreeMaker.setBullet()`
+    * Indentation symbol: `TreeMaker.setFiller()`
 
 ### FAQ
 
