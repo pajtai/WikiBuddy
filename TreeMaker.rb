@@ -12,13 +12,18 @@ module WikiManager
       @count = 0
       @output = ''
       @orphaned = 0
+      @max_show_depth = MAX_SHOW_DEPTH
+    end
+
+    def setShowDepth(showDepth)
+      @max_show_depth = showDepth
     end
 
     def showTree(page, depth, displayed)
 
       page.setMinDepth depth
 
-      unless depth > MAX_SHOW_DEPTH or page.getMinDepth < depth # or ! page.isOrphaned
+      unless depth > @max_show_depth or page.getMinDepth < depth # or ! page.isOrphaned
 
         page.setOrphaned false
 
@@ -106,7 +111,8 @@ module WikiManager
 
       @output = "#{@output} \n\n Total of #{@all_pages.size.to_s} pages.  \n" +
           " Total of #{@orphaned.to_s} pages not in main tree.  \n Total of #{@count.to_s} nodes.  \n" +
-          " This Sidebar and half of the \"Related To\" links created by <a href=\"#{WIKI_BUDDY}\">Wiki Buddy</a>  \n"
+          " This Sidebar and half of the \"Related To\" links created by <a href=\"#{WIKI_BUDDY}\">Wiki Buddy</a>  \n" +
+          " The full tree is at [[" + File.basename(FULL_TREE, ".md") + "]]  \n"
     end
 
     def getOutput

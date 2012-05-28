@@ -7,6 +7,7 @@ module WikiManager
   META_FILE = /^_/
   ROOT = 'home.md'
   SIDEBAR = '_Sidebar.md'
+  FULL_TREE = '_WB-Full-Tree.md'
   MAX_SHOW_DEPTH = 4
   MAX_PARSE_DEPTH = 10
   MAX_NODES = 5000

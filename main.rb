@@ -42,4 +42,12 @@ module WikiManager
 
   editor.addSidebar tree.getOutput
 
+  tree = TreeMaker.new all_pages
+  tree.setShowDepth(100)
+  tree.addDepthsToPages all_pages[ROOT], 0, Array.new
+  tree.showTree all_pages[ROOT], 0, Array.new
+  tree.finishOffTree
+
+  editor.addFullTree tree.getOutput
+
 end
