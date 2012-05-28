@@ -44,9 +44,10 @@ module WikiManager
 
   tree = TreeMaker.new all_pages
   tree.setShowDepth(100)
+  tree.setFiller(" . ")
+  tree.setBullet("")
   tree.addDepthsToPages all_pages[ROOT], 0, Array.new
   tree.showTree all_pages[ROOT], 0, Array.new
-  tree.finishOffTree
 
   editor.addFullTree tree.getOutput
 

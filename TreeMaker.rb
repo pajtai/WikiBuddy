@@ -13,10 +13,20 @@ module WikiManager
       @output = ''
       @orphaned = 0
       @max_show_depth = MAX_SHOW_DEPTH
+      @filler = "    "
+      @bullet = "*"
     end
 
     def setShowDepth(showDepth)
       @max_show_depth = showDepth
+    end
+
+    def setFiller(filler)
+      @filler = filler
+    end
+
+    def setBullet(bullet)
+      @bullet = bullet
     end
 
     def showTree(page, depth, displayed)
@@ -31,14 +41,14 @@ module WikiManager
 
         pre = ""
         for i in 2..depth
-          pre += "    "
+          pre += @filler
         end
 
         page_name = page.getPageName
         unless now_displayed.include? page_name
           unless depth == 0
             @count = @count + 1
-            @output += "\n" + pre + "* [[" + page_name + "]]  "
+            @output += "\n" + pre + @bullet + " [[" + page_name + "]]  "
           end
           now_displayed << page_name
 
