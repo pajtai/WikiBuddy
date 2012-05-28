@@ -22,7 +22,11 @@ module WikiManager
 
           open_file.each_line do |line|
 
-            break if line.match(RELATED_TO)
+            # Let's remove all "linked from" references so that links don't have to be checked
+            if line.match(RELATED_TO)
+              text += "\n" + RELATED_TO
+              break
+            end
 
             if first
               next if line.match(/^[\s]?$/)
