@@ -13,16 +13,6 @@ module WikiManager
 
   require CURRENT_DIR + '/Show'
 
-  # TODO:
-  # 1 - Create all Page objects
-  # 2 - Link all Page objects
-  # 3 - Look for missing links & add them to Page objects
-  # 4 - Add missing links to files
-  # 5 - Construct tree based on Page objects starting at Root.md
-  # 6 - Only show each Page once within each single branch of tree
-  # 7 - Keep track of Pages that were shown
-  # 8 - Show orphan Pages. Start at 1st one and show all links
-
   remove_rels = RemoveRels.new WIKI_DIR
   remove_rels.removeWikiBuddyAddedRels
 
