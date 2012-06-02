@@ -33,7 +33,7 @@ module WikiManager
 
       page.setMinDepth depth
 
-      unless depth > @max_show_depth or page.getMinDepth < depth # or ! page.isOrphaned
+      unless depth > @max_show_depth # or page.getMinDepth < depth # or ! page.isOrphaned
 
         page.setOrphaned false
 
@@ -55,7 +55,10 @@ module WikiManager
           links = page.getPageLinks
           depth += 1
           links.each do |one_link|
-            showTree one_link, depth, now_displayed
+            # only show links down the tree, not up
+            unless page.getMissingPages.include? one_link
+              showTree one_link, depth, now_displayed
+            end
           end
 
         end
