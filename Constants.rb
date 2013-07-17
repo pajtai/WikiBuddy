@@ -1,7 +1,7 @@
 module WikiManager
   RELATED_TO = "### Linked from:"
   # No trailing slash
-  WIKI_DIR = "../Reference.wiki/"
+  WIKI_DIR = "../Notes/"
   WHITE_SPACE = '-'
   VALID_PAGE_RE = /^(.+)\.(md|mkdn?|mdown|markdown|textile|rdoc|org|creole|re?st(\.txt)?|asciidoc|pod|(media)?wiki)$/i
   META_FILE = /^_/
