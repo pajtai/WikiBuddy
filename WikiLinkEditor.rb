@@ -58,7 +58,7 @@
 
     def addFullTree output
       File.open(WIKI_DIR + FULL_TREE, "w") do |open_file|
-        open_file << "<pre>" + output + "</pre>"
+        open_file << output
       end
     end
 
